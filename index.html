@@ -21,24 +21,39 @@
       line-height: 1.6;
     }
     
+    /* En-tête fixe occupant toute la largeur */
+    .fixed-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #18140e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      z-index: 1000;
+      border-bottom: 1px solid #333;
+    }
+    .fixed-header .header-left,
+    .fixed-header .header-right {
+      /* Les images seront redimensionnées automatiquement */
+      flex: 0 0 auto;
+    }
+    .fixed-header img {
+      max-height: 80px;
+      height: auto;
+      display: block;
+    }
+    
+    /* Décalage du contenu pour ne pas être caché par l'en-tête */
     .container {
       width: 85%;
       max-width: 850px;
       padding: 20px;
-      margin: 30px auto;
+      margin: 120px auto 30px auto; /* Marge supérieure augmentée pour compenser la hauteur de l'en-tête */
       background-color: #18140e;
       border-radius: 8px;
-    }
-    
-    /* Logo en-tête étiré sur toute la largeur du container */
-    .logo-container {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-    .logo-container img {
-      width: 100%;
-      height: auto;
-      display: block;
     }
     
     /* Bannière */
@@ -144,7 +159,7 @@
       color: #fff;
     }
     
-    /* Conteneur interne en flex pour séparer infos et carte */
+    /* Conteneur interne en flex pour séparer les infos et la carte */
     .modal-container {
       display: flex;
       flex-wrap: wrap;
@@ -202,12 +217,17 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Affichage du logo en tant qu'en-tête -->
-    <div class="logo-container">
-      <img src="images/l-affut-lame.jpg" alt="L'Affût'Lame">
+  <!-- En-tête fixe -->
+  <header class="fixed-header">
+    <div class="header-left">
+      <img src="images/nom.jpg" alt="Nom">
     </div>
-    
+    <div class="header-right">
+      <img src="images/logo.jpg" alt="Logo">
+    </div>
+  </header>
+  
+  <div class="container">
     <h2>À la main, sur pierre</h2>
     
     <div class="image-container"></div>
@@ -279,7 +299,7 @@
   </div>
   
   <script>
-    // Gestion de l'ouverture et fermeture de la modale
+    // Gestion de l'ouverture/fermeture de la modale
     var modal = document.getElementById("contactModal");
     var btn = document.getElementById("contact-btn");
     var span = document.getElementsByClassName("close")[0];
