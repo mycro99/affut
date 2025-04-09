@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Affûtage de Couteaux</title>
-  <!-- Importation des polices Cinzel pour les titres et Lora pour le corps -->
+  <!-- Importation des polices Cinzel pour certains titres et Lora pour le corps -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:wght@400&display=swap" rel="stylesheet" />
   <style>
     /* Réinitialisation */
@@ -13,14 +13,14 @@
       padding: 0;
       box-sizing: border-box;
     }
-
+    
     body {
       background-color: #0F0F0B;
       color: #f8f5f0;
       font-family: 'Lora', serif;
       line-height: 1.6;
     }
-
+    
     /* En-tête fixe occupant toute la largeur */
     .fixed-header {
       position: fixed;
@@ -32,7 +32,6 @@
       z-index: 1000;
       border-bottom: 1px solid #333;
     }
-
     .header-inner {
       max-width: 850px;
       margin: 0 auto;
@@ -42,7 +41,6 @@
       gap: 20px;
       position: relative;
     }
-
     /* Bloc logo à gauche, décalé de 5 cm vers la gauche */
     .header-left {
       transform: translateX(-5cm);
@@ -52,18 +50,17 @@
       height: auto;
       display: block;
     }
-
     /* Bloc centré pour le nom */
     .header-center {
       transform: translateX(-5cm);
       text-align: center;
+      flex-grow: 1;
     }
     .header-center img {
       width: 18cm;
       height: auto;
       display: inline-block;
     }
-
     /* Bloc à droite pour les boutons, décalé de 5 cm vers la gauche */
     .header-right {
       display: flex;
@@ -75,8 +72,8 @@
     .header-right button {
       background: none;
       border: none;
-      color: #f8f5f0;
-      font-family: 'Cinzel', serif;
+      color: #D4AF37;
+      font-family: 'Lora', serif; /* Mise à jour ici pour utiliser Lora */
       font-size: 1.2rem;
       cursor: pointer;
       text-decoration: none;
@@ -84,9 +81,9 @@
     }
     .header-right a:hover,
     .header-right button:hover {
-      color: #f8f5f0;
+      color: #bfa132;
     }
-
+    
     /* Conteneur principal, décalé pour laisser la place à l'en-tête */
     .container {
       width: 85%;
@@ -96,7 +93,7 @@
       background-color: #0F0F0B;
       border-radius: 8px;
     }
-
+    
     /* Bannière */
     .image-container {
       width: 100%;
@@ -105,7 +102,7 @@
       background-size: cover;
       margin-bottom: 30px;
     }
-
+    
     h2 {
       font-family: 'Cinzel', serif;
       font-size: 1.6rem;
@@ -114,10 +111,8 @@
       color: #e6be8a;
       margin-bottom: 20px;
     }
-
-    p,
-    ul,
-    li {
+    
+    p, ul, li {
       font-size: 1.2rem;
       margin-bottom: 15px;
     }
@@ -127,7 +122,7 @@
     li {
       margin-bottom: 10px;
     }
-
+    
     .tarifs-title {
       font-size: 1.4rem;
       font-weight: bold;
@@ -135,13 +130,14 @@
       margin: 30px 0 10px;
       text-decoration: underline;
     }
+    
     .signature {
       margin-top: 40px;
       text-align: center;
       font-style: italic;
       color: #e6be8a;
     }
-
+    
     /* Modal de contact */
     .modal {
       display: none;
@@ -152,9 +148,11 @@
       width: 100%;
       height: 100%;
       overflow: auto;
+      /* Augmentation du padding-top pour décaler le modal plus bas */
+      padding-top: 150px;
       background-color: rgba(15, 15, 11, 0.95);
-      padding-top: 50px;
     }
+    
     .modal-content {
       background-color: #0F0F0B;
       margin: auto;
@@ -165,6 +163,7 @@
       color: #f8f5f0;
       border-radius: 8px;
     }
+    
     .close {
       color: #D4AF37;
       float: right;
@@ -175,18 +174,17 @@
     .close:hover {
       color: #fff;
     }
-    /* Conteneur interne en flex pour séparer les infos et la carte */
+    
+    /* Conteneur interne pour le modal */
     .modal-container {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
     }
-    .modal-info,
-    .modal-map {
+    .modal-info, .modal-map {
       flex: 1 1 300px;
     }
-    .modal-info h2,
-    .modal-info h3 {
+    .modal-info h2, .modal-info h3 {
       font-family: 'Cinzel', serif;
       margin-bottom: 10px;
     }
@@ -197,8 +195,7 @@
       display: block;
       margin-top: 10px;
     }
-    form input,
-    form textarea {
+    form input, form textarea {
       width: 100%;
       padding: 8px;
       margin-top: 5px;
@@ -218,6 +215,7 @@
     form button:hover {
       background-color: #bfa132;
     }
+    
     .modal-map iframe {
       width: 100%;
       height: 300px;
@@ -246,7 +244,7 @@
       </div>
     </div>
   </header>
-
+  
   <div class="container">
     <h2>À la main, sur pierre</h2>
     <div class="image-container"></div>
@@ -273,10 +271,9 @@
     <p class="signature">
       Je travaille avec passion, à la main, pour redonner vie à vos lames, sans les abîmer.
     </p>
-    <!-- Bouton Contact dans le contenu principal -->
-    <button id="contact-btn">Contact</button>
+    <!-- Le bouton Contact dans le contenu principal a été supprimé -->
   </div>
-
+  
   <!-- Modal de contact -->
   <div id="contactModal" class="modal">
     <div class="modal-content">
@@ -311,17 +308,13 @@
       </div>
     </div>
   </div>
-
+  
   <script>
-    // Gestion du modal pour le bouton "Contact" présent dans l'en-tête et le contenu principal
+    // Gestion du modal pour le bouton "Contact" présent dans l'en-tête (id contact-btn2)
     var modal = document.getElementById("contactModal");
-    var btn1 = document.getElementById("contact-btn");
     var btn2 = document.getElementById("contact-btn2");
     var span = document.getElementsByClassName("close")[0];
 
-    btn1.onclick = function() {
-      modal.style.display = "block";
-    }
     btn2.onclick = function() {
       modal.style.display = "block";
     }
