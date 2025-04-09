@@ -22,40 +22,36 @@
     }
     
     /* En-tête fixe occupant toute la largeur */
-    /* Style général des images dans l'en-tête */
-    .header-inner img {
-      object-fit: contain;
-      display: block;
+    .fixed-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #18140e;
+      padding: 10px 20px;
+      z-index: 1000;
+      border-bottom: 1px solid #333;
     }
-
-    /* Logo classique */
-    .header-inner img:first-child {
-      width: 120px;
-      height: 120px;
-    }
-
-    /* Nom mis en avant */
-    .header-inner .big-name {
-      width: 500px;      /* ou ajuste à 600px si tu veux encore plus large */
-      max-width: 90vw;   /* adaptation responsive */
-      height: auto;
-      display: block;
+    .header-inner {
+      max-width: 850px;
       margin: 0 auto;
-    }
-    
-    .header-inner.center-logo {
+      display: flex;
       justify-content: center;
       align-items: center;
-      text-align: center;
     }
-
+    /* L'image nom.jpg centrée avec une largeur d'environ 11cm */
+    .header-inner img {
+      width: 11cm;
+      height: auto;
+      display: block;
+    }
     
     /* Conteneur principal (déplacé vers le bas pour laisser l'espace de l'en-tête) */
     .container {
       width: 85%;
       max-width: 850px;
       padding: 20px;
-      margin: 250px auto 30px auto; /* Augmentation de la marge supérieure */
+      margin: 150px auto 30px auto; /* Ajustez la marge supérieure pour ne pas être couvert par l'en-tête */
       background-color: #18140e;
       border-radius: 8px;
     }
@@ -163,7 +159,7 @@
       color: #fff;
     }
     
-    /* Conteneur interne flex pour séparer les infos et la carte */
+    /* Conteneur interne en flex pour séparer les infos et la carte */
     .modal-container {
       display: flex;
       flex-wrap: wrap;
@@ -220,27 +216,28 @@
   </style>
 </head>
 <body>
-  <!-- En-tête fixe -->
+  <!-- En-tête fixe avec uniquement l'image nom.jpg centrée -->
   <header class="fixed-header">
     <div class="header-inner">
-      <!-- Logo à gauche -->
-      <img src="images/logo.jpg" alt="Logo">
-      <!-- Nom à droite -->
-      <img src="images/nom.jpg" alt="Nom" class="big-name">
+      <img src="images/nom.jpg" alt="Nom">
     </div>
   </header>
   
   <div class="container">
     <h2>À la main, sur pierre</h2>
+    
     <div class="image-container"></div>
+    
     <p style="text-align: center; font-style: italic; color: #e6be8a;">
       Service artisanal fait à la pierre, du grain 200 à 12000 pour un affûtage fin, précis, respectueux de vos couteaux.
     </p>
+    
     <ul>
       <li>Couteaux de cuisine (chef, office, santoku, etc.)</li>
       <li>Couteaux de table et d’office</li>
       <li>Couteaux de poche/pliant</li>
     </ul>
+    
     <div class="tarifs-title">Tarifs indicatifs</div>
     <ul>
       <li>Couteaux de poche/pliant: 4€</li>
@@ -248,14 +245,18 @@
       <li>Couteaux de cuisine &gt;15cm : 8€</li>
       <li>Lot de 5 couteaux : -10%</li>
     </ul>
+    
     <p>* Affûtage sur mesure possible suivant l’état de la lame</p>
+    
     <p>
       <strong>Délai :</strong> 24 à 72h selon la charge de travail<br>
       <strong>Lieu :</strong> Liège et environs &mdash; Dépôt/retrait sur rendez-vous
     </p>
+    
     <p class="signature">
       Je travaille avec passion, à la main, pour redonner vie à vos lames, sans les abîmer.
     </p>
+    
     <!-- Bouton Contact -->
     <button id="contact-btn">Contact</button>
   </div>
@@ -269,7 +270,7 @@
         <div class="modal-info">
           <h2>Coordonnées</h2>
           <p><strong>KEVIN LERUTH</strong><br>
-            0491 59 98 51</p>
+             0491 59 98 51</p>
           <h3>Formulaire de Contact</h3>
           <form id="contactForm" method="post" action="mailto:kev.leruth@gmail.com">
             <label for="name">Nom :</label>
@@ -291,7 +292,7 @@
   </div>
   
   <script>
-    // Gestion de la modale
+    // Gestion de l'ouverture/fermeture de la modale
     var modal = document.getElementById("contactModal");
     var btn = document.getElementById("contact-btn");
     var span = document.getElementsByClassName("close")[0];
