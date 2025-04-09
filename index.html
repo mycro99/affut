@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Affûtage de Couteaux</title>
   <!-- Importation des polices Cinzel pour les titres et Lora pour le corps -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:wght@400&display=swap" rel="stylesheet" />
   <style>
     /* Réinitialisation */
     * {
@@ -13,21 +13,21 @@
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
-      background-color: #0F0F0B; /* Couleur exacte */
+      background-color: #0F0F0B;
       color: #f8f5f0;
       font-family: 'Lora', serif;
       line-height: 1.6;
     }
-    
+
     /* En-tête fixe occupant toute la largeur */
     .fixed-header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      background-color: #0F0F0B; /* Couleur exacte */
+      background-color: #0F0F0B;
       padding: 10px 20px;
       z-index: 1000;
       border-bottom: 1px solid #333;
@@ -37,36 +37,61 @@
       margin: 0 auto;
       display: flex;
       align-items: center;
-      position: relative;
+      justify-content: space-between;
       gap: 20px;
-      justify-content: center;
+      position: relative;
     }
-    /* Bloc logo à gauche avec décalage de 2 cm */
+    /* Bloc logo à gauche, décalé de 2 cm */
     .header-left {
       transform: translateX(-2cm);
     }
     .header-left img {
-      width: 200px;
+      width: 150px;
       height: auto;
       display: block;
     }
     /* Bloc centré pour le nom */
-    .header-center img {
-      width: 18cm; /* Largeur fixée */
-      height: auto;
-      display: block;
+    .header-center {
+      flex-grow: 1;
+      text-align: center;
     }
-    
-    /* Conteneur principal, décalé vers le bas pour laisser la place à l'en-tête */
+    .header-center img {
+      width: 22cm;
+      height: auto;
+      display: inline-block;
+    }
+    /* Bloc à droite pour les boutons */
+    .header-right {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .header-right a,
+    .header-right button {
+      background: none;
+      border: none;
+      color: #D4AF37;
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      cursor: pointer;
+      text-decoration: none;
+      padding: 8px 12px;
+    }
+    .header-right a:hover,
+    .header-right button:hover {
+      color: #bfa132;
+    }
+
+    /* Conteneur principal (décalé pour laisser la place à l'en-tête) */
     .container {
       width: 85%;
       max-width: 850px;
       padding: 20px;
-      margin: 250px auto 30px auto; /* Ajustée pour l'espace de l'en-tête */
-      background-color: #0F0F0B; /* Couleur exacte */
+      margin: 300px auto 30px auto;
+      background-color: #0F0F0B;
       border-radius: 8px;
     }
-    
+
     /* Bannière */
     .image-container {
       width: 100%;
@@ -75,7 +100,7 @@
       background-size: cover;
       margin-bottom: 30px;
     }
-    
+
     h2 {
       font-family: 'Cinzel', serif;
       font-size: 1.6rem;
@@ -84,20 +109,20 @@
       color: #e6be8a;
       margin-bottom: 20px;
     }
-    
-    p, ul, li {
+
+    p,
+    ul,
+    li {
       font-size: 1.2rem;
       margin-bottom: 15px;
     }
-    
     ul {
       padding-left: 40px;
     }
-    
     li {
       margin-bottom: 10px;
     }
-    
+
     .tarifs-title {
       font-size: 1.4rem;
       font-weight: bold;
@@ -105,34 +130,14 @@
       margin: 30px 0 10px;
       text-decoration: underline;
     }
-    
+
     .signature {
       margin-top: 40px;
       text-align: center;
       font-style: italic;
       color: #e6be8a;
     }
-    
-    /* Bouton Contact */
-    #contact-btn {
-      display: block;
-      width: 200px;
-      margin: 30px auto 0;
-      padding: 12px;
-      font-size: 1.3rem;
-      font-family: 'Cinzel', serif;
-      font-weight: bold;
-      background-color: #D4AF37;
-      color: #0F0F0B;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    
-    #contact-btn:hover {
-      background-color: #bfa132;
-    }
-    
+
     /* Modal de contact */
     .modal {
       display: none;
@@ -143,10 +148,10 @@
       width: 100%;
       height: 100%;
       overflow: auto;
-      background-color: rgba(15, 15, 11, 0.95); /* Basé sur #0F0F0B */
+      background-color: rgba(15, 15, 11, 0.95);
       padding-top: 50px;
     }
-    
+
     .modal-content {
       background-color: #0F0F0B;
       margin: auto;
@@ -157,7 +162,7 @@
       color: #f8f5f0;
       border-radius: 8px;
     }
-    
+
     .close {
       color: #D4AF37;
       float: right;
@@ -165,44 +170,40 @@
       font-weight: bold;
       cursor: pointer;
     }
-    
     .close:hover {
       color: #fff;
     }
-    
+
     /* Conteneur interne flex pour séparer les infos et la carte */
     .modal-container {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
     }
-    
-    .modal-info, .modal-map {
+    .modal-info,
+    .modal-map {
       flex: 1 1 300px;
     }
-    
-    .modal-info h2, .modal-info h3 {
+    .modal-info h2,
+    .modal-info h3 {
       font-family: 'Cinzel', serif;
       margin-bottom: 10px;
     }
-    
     .modal-info p {
       margin-bottom: 15px;
     }
-    
     form label {
       display: block;
       margin-top: 10px;
     }
-    
-    form input, form textarea {
+    form input,
+    form textarea {
       width: 100%;
       padding: 8px;
       margin-top: 5px;
       border: none;
       border-radius: 4px;
     }
-    
     form button {
       margin-top: 15px;
       padding: 10px;
@@ -213,11 +214,9 @@
       border: none;
       cursor: pointer;
     }
-    
     form button:hover {
       background-color: #bfa132;
     }
-    
     .modal-map iframe {
       width: 100%;
       height: 300px;
@@ -238,9 +237,16 @@
       <div class="header-center">
         <img src="images/nom.jpg" alt="Nom">
       </div>
+      <!-- Bloc à droite pour les boutons -->
+      <div class="header-right">
+        <a href="index.html">Accueil</a>
+        <a href="philosophie.html">Notre phylosophie</a>
+        <!-- Le bouton Contact ouvre le modal -->
+        <button id="contact-btn2">Contact</button>
+      </div>
     </div>
   </header>
-  
+
   <div class="container">
     <h2>À la main, sur pierre</h2>
     <div class="image-container"></div>
@@ -267,8 +273,6 @@
     <p class="signature">
       Je travaille avec passion, à la main, pour redonner vie à vos lames, sans les abîmer.
     </p>
-    <!-- Bouton Contact -->
-    <button id="contact-btn">Contact</button>
   </div>
   
   <!-- Modal de contact -->
@@ -279,10 +283,7 @@
         <!-- Coordonnées et formulaire -->
         <div class="modal-info">
           <h2>Coordonnées</h2>
-          <p>
-            <strong>KEVIN LERUTH</strong><br>
-            0491 59 98 51
-          </p>
+          <p><strong>KEVIN LERUTH</strong><br>0491 59 98 51</p>
           <h3>Formulaire de Contact</h3>
           <form id="contactForm" method="post" action="mailto:kev.leruth@gmail.com">
             <label for="name">Nom :</label>
@@ -302,21 +303,19 @@
       </div>
     </div>
   </div>
-  
+
   <script>
-    // Gestion de l'ouverture/fermeture de la modale
+    // Gestion du modal pour le bouton du header ("Contact")
     var modal = document.getElementById("contactModal");
-    var btn = document.getElementById("contact-btn");
+    var btn2 = document.getElementById("contact-btn2");
     var span = document.getElementsByClassName("close")[0];
-    
-    btn.onclick = function() {
+
+    btn2.onclick = function() {
       modal.style.display = "block";
     }
-    
     span.onclick = function() {
       modal.style.display = "none";
     }
-    
     window.onclick = function(event) {
       if (event.target == modal) {
         modal.style.display = "none";
