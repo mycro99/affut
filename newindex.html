@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Affûtage de Couteaux</title>
+  <!-- Importation de la police Cinzel pour les titres et Lora pour le corps -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:wght@400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #18140e;
+      color: #f8f5f0;
+      font-family: 'Lora', serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 85%;
+      max-width: 850px;
+      padding: 20px;
+      margin: 30px auto;
+      background-color: rgba(0, 0, 0, 0.65);
+      border-radius: 8px;
+    }
+
+    .image-container {
+      width: 100%;
+      height: 400px;
+      background: url('images/affut1.jpg') no-repeat center center;
+      background-size: cover;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 3rem;
+      text-align: center;
+      text-transform: uppercase;
+      color: #D4AF37;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.6rem;
+      font-style: italic;
+      text-align: center;
+      color: #e6be8a;
+      margin-bottom: 20px;
+    }
+
+    p, ul, li {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      padding-left: 40px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .tarifs-title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #FFD700;
+      margin: 30px 0 10px;
+      text-decoration: underline;
+    }
+
+    .signature {
+      margin-top: 40px;
+      text-align: center;
+      font-style: italic;
+      color: #e6be8a;
+    }
+
+    .contact {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 1.3rem;
+      color: #D4AF37;
+      font-family: 'Cinzel', serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Affûtage de Couteaux</h1>
+    <h2>À la main, sur pierre</h2>
+
+    <div class="image-container"></div>
+
+    <p style="text-align: center; font-style: italic; color: #e6be8a;">
+      Service artisanal fait à la pierre, du grain 200 à 12000 pour un affûtage fin, précis, respectueux de vos couteaux.
+    </p>
+
+    <ul>
+      <li>Couteaux de cuisine (chef, office, santoku, etc.)</li>
+      <li>Couteaux de table et d’office</li>
+      <li>Couteaux de poche/pliant</li>
+    </ul>
+
+    <div class="tarifs-title">Tarifs indicatifs</div>
+    <ul>
+      <li>Couteaux de poche/pliant: 4€</li>
+      <li>Couteaux de cuisine &lt;15cm : 6€</li>
+      <li>Couteaux de cuisine &gt;15cm : 8€</li>
+      <li>Lot de 5 couteaux : -10%</li>
+    </ul>
+
+    <p>* Affûtage sur mesure possible suivant l’état de la lame</p>
+
+    <p><strong>Délai :</strong> 24 à 72h selon la charge de travail<br>
+    <strong>Lieu :</strong> Liège et environs &mdash; Dépôt/retrait sur rendez-vous</p>
+
+  
+
+    <p class="signature">
+      Je travaille avec passion, à la main, pour redonner vie à vos lames, sans les abîmer.
+    </p>
+  </div>
+  <!-- Modal de contact -->
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Coordonnées</h2>
+      <p><strong>KEVIN LERUTH</strong><br>
+      0491 59 98 51</p>
+      <h3>Formulaire de Contact</h3>
+      <form id="contactForm" method="post" action="mailto:exemple@mail.com">
+        <label for="name">Nom :</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="message">Message :</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        
+        <button type="submit">Envoyer</button>
+      </form>
+    </div>
+  </div>
+  
+  <script>
+    // Gestion de la modale
+    var modal = document.getElementById("contactModal");
+    var btn = document.getElementById("contact-btn");
+    var span = document.getElementsByClassName("close")[0];
+    
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+    
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
