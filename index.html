@@ -32,6 +32,7 @@
       z-index: 1000;
       border-bottom: 1px solid #333;
     }
+
     .header-inner {
       max-width: 850px;
       margin: 0 auto;
@@ -41,6 +42,7 @@
       gap: 20px;
       position: relative;
     }
+
     /* Bloc logo à gauche, décalé de 5 cm vers la gauche */
     .header-left {
       transform: translateX(-5cm);
@@ -50,7 +52,8 @@
       height: auto;
       display: block;
     }
-    /* Bloc centré pour le nom, également décalé de 5 cm vers la gauche */
+
+    /* Bloc centré pour le nom */
     .header-center {
       transform: translateX(-5cm);
       text-align: center;
@@ -60,11 +63,13 @@
       height: auto;
       display: inline-block;
     }
-    /* Bloc à droite pour les boutons */
+
+    /* Bloc à droite pour les boutons, décalé de 5 cm vers la gauche */
     .header-right {
       display: flex;
       gap: 10px;
       align-items: center;
+      transform: translateX(-5cm);
     }
     .header-right a,
     .header-right button {
@@ -82,7 +87,7 @@
       color: #bfa132;
     }
 
-    /* Conteneur principal, décalé vers le bas pour laisser la place à l'en-tête */
+    /* Conteneur principal, décalé pour laisser la place à l'en-tête */
     .container {
       width: 85%;
       max-width: 850px;
@@ -110,15 +115,15 @@
       margin-bottom: 20px;
     }
 
-    p, ul, li {
+    p,
+    ul,
+    li {
       font-size: 1.2rem;
       margin-bottom: 15px;
     }
-
     ul {
       padding-left: 40px;
     }
-
     li {
       margin-bottom: 10px;
     }
@@ -130,7 +135,6 @@
       margin: 30px 0 10px;
       text-decoration: underline;
     }
-
     .signature {
       margin-top: 40px;
       text-align: center;
@@ -151,7 +155,6 @@
       background-color: rgba(15, 15, 11, 0.95);
       padding-top: 50px;
     }
-
     .modal-content {
       background-color: #0F0F0B;
       margin: auto;
@@ -162,7 +165,6 @@
       color: #f8f5f0;
       border-radius: 8px;
     }
-
     .close {
       color: #D4AF37;
       float: right;
@@ -173,17 +175,18 @@
     .close:hover {
       color: #fff;
     }
-
     /* Conteneur interne en flex pour séparer les infos et la carte */
     .modal-container {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
     }
-    .modal-info, .modal-map {
+    .modal-info,
+    .modal-map {
       flex: 1 1 300px;
     }
-    .modal-info h2, .modal-info h3 {
+    .modal-info h2,
+    .modal-info h3 {
       font-family: 'Cinzel', serif;
       margin-bottom: 10px;
     }
@@ -194,7 +197,8 @@
       display: block;
       margin-top: 10px;
     }
-    form input, form textarea {
+    form input,
+    form textarea {
       width: 100%;
       padding: 8px;
       margin-top: 5px;
@@ -214,7 +218,6 @@
     form button:hover {
       background-color: #bfa132;
     }
-
     .modal-map iframe {
       width: 100%;
       height: 300px;
@@ -239,7 +242,6 @@
       <div class="header-right">
         <a href="index.html">Accueil</a>
         <a href="philosophie.html">Notre phylosophie</a>
-        <!-- Bouton Contact ouvrant le modal -->
         <button id="contact-btn2">Contact</button>
       </div>
     </div>
@@ -311,7 +313,7 @@
   </div>
 
   <script>
-    // Gestion du modal pour le bouton "Contact" dans le header (id contact-btn2) et le contenu principal (id contact-btn)
+    // Gestion du modal pour le bouton "Contact" présent dans l'en-tête et le contenu principal
     var modal = document.getElementById("contactModal");
     var btn1 = document.getElementById("contact-btn");
     var btn2 = document.getElementById("contact-btn2");
