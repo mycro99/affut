@@ -38,20 +38,26 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      gap: 20px;
     }
-    /* L'image nom.jpg centrée et agrandie (doublée par rapport à la taille précédente) */
+    /* L'image nom.jpg centrée avec une largeur d'environ 22 cm (doublée par rapport à 11cm) */
     .header-inner img {
-      width: 22cm;  /* Taille doublée : 22cm */
+      width: 20cm; /* Si vous souhaitez doubler la taille, vous pouvez utiliser 22cm ici */
       height: auto;
       display: block;
     }
+    
+    /* Exemple avec nom.jpg à 22 cm et logo.jpg à une taille uniforme */
+    /* Pour cet exemple, on suppose que seule l'image nom.jpg est affichée dans l'en-tête fixe.
+       Sinon, si vous souhaitez afficher logo.jpg et nom.jpg côte à côte, adaptez la largeur individuellement.
+       Ici, nous plaçons uniquement l'image nom.jpg en entête fixe. */
     
     /* Conteneur principal (déplacé vers le bas pour laisser l'espace de l'en-tête) */
     .container {
       width: 85%;
       max-width: 850px;
       padding: 20px;
-      margin: 150px auto 30px auto; /* Ajustez la marge supérieure pour ne pas être couvert par l'en-tête */
+      margin: 220px auto 30px auto; /* Marge supérieure augmentée */
       background-color: #18140e;
       border-radius: 8px;
     }
@@ -159,7 +165,7 @@
       color: #fff;
     }
     
-    /* Conteneur interne en flex pour séparer les infos et la carte */
+    /* Conteneur interne flex pour séparer les infos et la carte */
     .modal-container {
       display: flex;
       flex-wrap: wrap;
@@ -216,7 +222,7 @@
   </style>
 </head>
 <body>
-  <!-- En-tête fixe avec uniquement l'image nom.jpg centrée -->
+  <!-- En-tête fixe avec l'image nom.jpg centrée -->
   <header class="fixed-header">
     <div class="header-inner">
       <img src="images/nom.jpg" alt="Nom">
