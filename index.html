@@ -41,18 +41,18 @@
       gap: 20px;
       position: relative;
     }
-    /* Bloc logo à gauche, décalé de 2 cm */
+    /* Bloc logo à gauche, décalé de 5 cm vers la gauche */
     .header-left {
-      transform: translateX(-2cm);
+      transform: translateX(-5cm);
     }
     .header-left img {
       width: 200px;
       height: auto;
       display: block;
     }
-    /* Bloc centré pour le nom */
+    /* Bloc centré pour le nom, également décalé de 5 cm vers la gauche */
     .header-center {
-      flex-grow: 1;
+      transform: translateX(-5cm);
       text-align: center;
     }
     .header-center img {
@@ -82,7 +82,7 @@
       color: #bfa132;
     }
 
-    /* Conteneur principal (décalé pour laisser la place à l'en-tête) */
+    /* Conteneur principal, décalé vers le bas pour laisser la place à l'en-tête */
     .container {
       width: 85%;
       max-width: 850px;
@@ -110,15 +110,15 @@
       margin-bottom: 20px;
     }
 
-    p,
-    ul,
-    li {
+    p, ul, li {
       font-size: 1.2rem;
       margin-bottom: 15px;
     }
+
     ul {
       padding-left: 40px;
     }
+
     li {
       margin-bottom: 10px;
     }
@@ -174,18 +174,16 @@
       color: #fff;
     }
 
-    /* Conteneur interne flex pour séparer les infos et la carte */
+    /* Conteneur interne en flex pour séparer les infos et la carte */
     .modal-container {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
     }
-    .modal-info,
-    .modal-map {
+    .modal-info, .modal-map {
       flex: 1 1 300px;
     }
-    .modal-info h2,
-    .modal-info h3 {
+    .modal-info h2, .modal-info h3 {
       font-family: 'Cinzel', serif;
       margin-bottom: 10px;
     }
@@ -196,8 +194,7 @@
       display: block;
       margin-top: 10px;
     }
-    form input,
-    form textarea {
+    form input, form textarea {
       width: 100%;
       padding: 8px;
       margin-top: 5px;
@@ -217,6 +214,7 @@
     form button:hover {
       background-color: #bfa132;
     }
+
     .modal-map iframe {
       width: 100%;
       height: 300px;
@@ -241,7 +239,7 @@
       <div class="header-right">
         <a href="index.html">Accueil</a>
         <a href="philosophie.html">Notre phylosophie</a>
-        <!-- Le bouton Contact ouvre le modal -->
+        <!-- Bouton Contact ouvrant le modal -->
         <button id="contact-btn2">Contact</button>
       </div>
     </div>
@@ -273,8 +271,10 @@
     <p class="signature">
       Je travaille avec passion, à la main, pour redonner vie à vos lames, sans les abîmer.
     </p>
+    <!-- Bouton Contact dans le contenu principal -->
+    <button id="contact-btn">Contact</button>
   </div>
-  
+
   <!-- Modal de contact -->
   <div id="contactModal" class="modal">
     <div class="modal-content">
@@ -283,15 +283,21 @@
         <!-- Coordonnées et formulaire -->
         <div class="modal-info">
           <h2>Coordonnées</h2>
-          <p><strong>KEVIN LERUTH</strong><br>0491 59 98 51</p>
+          <p>
+            <strong>KEVIN LERUTH</strong><br>
+            0491 59 98 51
+          </p>
           <h3>Formulaire de Contact</h3>
           <form id="contactForm" method="post" action="mailto:kev.leruth@gmail.com">
             <label for="name">Nom :</label>
             <input type="text" id="name" name="name" required>
+            
             <label for="email">Email :</label>
             <input type="email" id="email" name="email" required>
+            
             <label for="message">Message :</label>
             <textarea id="message" name="message" rows="4" required></textarea>
+            
             <button type="submit">Envoyer</button>
           </form>
         </div>
@@ -305,11 +311,15 @@
   </div>
 
   <script>
-    // Gestion du modal pour le bouton du header ("Contact")
+    // Gestion du modal pour le bouton "Contact" dans le header (id contact-btn2) et le contenu principal (id contact-btn)
     var modal = document.getElementById("contactModal");
+    var btn1 = document.getElementById("contact-btn");
     var btn2 = document.getElementById("contact-btn2");
     var span = document.getElementsByClassName("close")[0];
 
+    btn1.onclick = function() {
+      modal.style.display = "block";
+    }
     btn2.onclick = function() {
       modal.style.display = "block";
     }
