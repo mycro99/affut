@@ -22,31 +22,24 @@
     }
     
     /* En-tête fixe occupant toute la largeur */
-    .fixed-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: #18140e;
-      padding: 10px 20px;
-      z-index: 1000;
-      border-bottom: 1px solid #333;
-    }
-    .header-inner {
-      max-width: 850px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-    }
-    /* Agrandissement et uniformisation des images */
+    /* Style général des images dans l'en-tête */
     .header-inner img {
-      width: 200px;
-      height: 200px;
       object-fit: contain;
       display: block;
     }
+
+    /* Logo classique */
+    .header-inner img:first-child {
+      width: 120px;
+      height: 120px;
+    }
+
+    /* Nom mis en avant */
+    .header-inner .big-name {
+      width: 400px;
+      height: auto;
+    }
+
     
     /* Conteneur principal (déplacé vers le bas pour laisser l'espace de l'en-tête) */
     .container {
@@ -224,7 +217,7 @@
       <!-- Logo à gauche -->
       <img src="images/logo.jpg" alt="Logo">
       <!-- Nom à droite -->
-      <img src="images/nom.jpg" alt="Nom">
+      <img src="images/nom.jpg" alt="Nom" class="big-name">
     </div>
   </header>
   
