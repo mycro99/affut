@@ -99,7 +99,7 @@
       background-size: cover;
     }
     
-    /* Superposition semi-transparente pour réduire l'opacité de l'image */
+    /* Superposition semi-transparente sur l'image */
     .image-container::before {
       content: "";
       position: absolute;
@@ -107,19 +107,21 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba(0, 0, 0, 0.3);  /* Opacité plus faible pour laisser transparaître l'image */
+      background-color: rgba(0, 0, 0, 0.3);  /* Légère superposition pour améliorer la lisibilité du texte */
       z-index: 1;
     }
     
-    /* Texte superposé sur l'image */
+    /* Texte superposé sur l'image, placé en bas à gauche */
     .overlay-text {
-      position: relative;
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
       z-index: 2;
-      text-align: center;
+      text-align: left;
       font-size: 2rem;
-      top: 50%;
-      transform: translateY(-50%);
-      padding: 0 10px;
+      padding: 10px;
+      /* Optionnel : ajout d'un fond semi-transparent pour améliorer la lisibilité */
+      /* background-color: rgba(0, 0, 0, 0.5); */
     }
     
     /* Modal pour le contact */
@@ -198,9 +200,9 @@
     </p>
   </div>
   
-  <!-- Zone d'image avec texte superposé -->
+  <!-- Zone d'image avec texte superposé (issu d'une partie du contenu principal) -->
   <div class="image-container">
-    <div class="overlay-text">Affûtage artisanal</div>
+    <div class="overlay-text">Couteaux de cuisine, table et poche/pliant</div>
   </div>
   
   <!-- Section du contenu principal -->
