@@ -21,42 +21,43 @@
       line-height: 1.6;
     }
     
-    /* En-tête fixe occupant toute la largeur */
+    /* En-tête fixe occupant toute la largeur de la page */
     .fixed-header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       background-color: #18140e;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       padding: 10px 20px;
       z-index: 1000;
       border-bottom: 1px solid #333;
     }
-    .fixed-header .header-left,
-    .fixed-header .header-right {
-      /* Les images seront redimensionnées automatiquement */
-      flex: 0 0 auto;
+    .header-inner {
+      max-width: 850px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
     }
-    .fixed-header img {
-      max-height: 80px;
-      height: auto;
-      display: block;
+    /* Forçage d'une taille uniforme pour les 2 images */
+    .header-inner img {
+      width: 150px; /* Ajustez cette valeur selon vos besoins */
+      height: 150px; /* Optionnel : ici une hauteur fixe pour uniformiser */
+      object-fit: contain;
     }
     
-    /* Décalage du contenu pour ne pas être caché par l'en-tête */
+    /* Le contenu principal est décalé pour laisser l'espace de l'en-tête */
     .container {
       width: 85%;
       max-width: 850px;
       padding: 20px;
-      margin: 120px auto 30px auto; /* Marge supérieure augmentée pour compenser la hauteur de l'en-tête */
+      margin: 140px auto 30px auto; /* Marge supérieure augmentée pour compenser l'en-tête fixe */
       background-color: #18140e;
       border-radius: 8px;
     }
     
-    /* Bannière */
+    /* Bannière d'image */
     .image-container {
       width: 100%;
       height: 400px;
@@ -159,7 +160,7 @@
       color: #fff;
     }
     
-    /* Conteneur interne en flex pour séparer les infos et la carte */
+    /* Conteneur interne en flex pour séparer infos et carte */
     .modal-container {
       display: flex;
       flex-wrap: wrap;
@@ -219,11 +220,11 @@
 <body>
   <!-- En-tête fixe -->
   <header class="fixed-header">
-    <div class="header-left">
-      <img src="images/nom.jpg" alt="Nom">
-    </div>
-    <div class="header-right">
+    <div class="header-inner">
+      <!-- Image logo à gauche -->
       <img src="images/logo.jpg" alt="Logo">
+      <!-- Image nom à droite -->
+      <img src="images/nom.jpg" alt="Nom">
     </div>
   </header>
   
