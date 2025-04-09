@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Affûtage de Couteaux</title>
-  <!-- Intégration de la police Amatic SC pour un style artisanal -->
-  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Importation des polices Google : Playfair Display pour les titres et Lora pour le corps -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
-    /* Réinitialisation des styles */
+    /* Réinitialisation */
     * {
       margin: 0;
       padding: 0;
@@ -15,9 +15,9 @@
     }
     
     body {
-      background-color: #000; /* Fond noir */
-      color: #D4AF37; /* Texte doré */
-      font-family: 'Amatic SC', cursive, "Times New Roman", serif;
+      background-color: #000;
+      color: #D4AF37;
+      font-family: 'Lora', serif;
       line-height: 1.6;
     }
     
@@ -34,14 +34,19 @@
     }
     
     h1 {
-      font-size: 2.5rem;
-      letter-spacing: 2px;
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
       text-transform: uppercase;
+      /* Dégradé de couleurs pour un effet mixte */
+      background: linear-gradient(45deg, #D4AF37, #FFD700, #E6BE8A);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     
     h2 {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       font-style: italic;
+      color: #D4AF37;
     }
     
     p, ul {
@@ -88,45 +93,27 @@
       background-color: #bfa132;
     }
     
-    /* Image container ajusté */
+    /* Zone d'image */
     .image-container {
       width: 80%;
       max-width: 800px;
       margin: 20px auto;
-      height: 400px;  /* Hauteur augmentée pour plus de visibilité */
+      height: 400px;
       position: relative;
       background: url('images/affut1.jpg') no-repeat center center;
       background-size: cover;
     }
     
-    /* Superposition semi-transparente sur l'image */
-    .image-container::before {
-      content: "";
-      position: absolute;
-      top: 0; 
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, 0.3);  /* Légère superposition pour améliorer la lisibilité du texte */
-      z-index: 1;
-    }
-    
-    /* Texte superposé sur l'image, placé en bas à gauche */
-    .overlay-text {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      z-index: 2;
-      text-align: left;
-      font-size: 2rem;
-      padding: 10px;
-      /* Optionnel : ajout d'un fond semi-transparent pour améliorer la lisibilité */
-      /* background-color: rgba(0, 0, 0, 0.5); */
+    /* Contenu principal repositionné pour chevaucher le bas de l'image */
+    .main-content {
+      margin-top: -50px; /* Ajuste cette valeur pour rapprocher le contenu du bas de l'image */
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
     }
     
     /* Modal pour le contact */
     .modal {
-      display: none; /* Caché par défaut */
+      display: none;
       position: fixed;
       z-index: 10;
       left: 0;
@@ -187,7 +174,6 @@
     form button:hover {
       background-color: #bfa132;
     }
-    
   </style>
 </head>
 <body>
@@ -200,13 +186,11 @@
     </p>
   </div>
   
-  <!-- Zone d'image avec texte superposé (issu d'une partie du contenu principal) -->
-  <div class="image-container">
-    <div class="overlay-text">Couteaux de cuisine, table et poche/pliant</div>
-  </div>
+  <!-- Zone d'image -->
+  <div class="image-container"></div>
   
-  <!-- Section du contenu principal -->
-  <div class="container">
+  <!-- Contenu principal repositionné pour chevaucher le bas de l'image -->
+  <div class="container main-content">
     <ul>
       <li>Couteaux de cuisine (chef, office, santoku, etc.)</li>
       <li>Couteaux de table et d’office</li>
@@ -227,7 +211,7 @@
       <strong>Lieu :</strong> Liège et environ — dépôt/retrait sur RDV pour plus de facilité
     </p>
     
-    <!-- Bouton de contact qui ouvre la modale -->
+    <!-- Bouton de contact -->
     <button id="contact-btn">Contact</button>
     
     <p class="signature">
@@ -259,7 +243,7 @@
   </div>
   
   <script>
-    // Gestion de l'ouverture/fermeture de la modale
+    // Gestion de l'ouverture et de la fermeture de la modale
     var modal = document.getElementById("contactModal");
     var btn = document.getElementById("contact-btn");
     var span = document.getElementsByClassName("close")[0];
