@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Affûtage de Couteaux</title>
+  <!-- Intégration de la police Amatic SC pour un style artisanal -->
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
   <style>
     /* Réinitialisation des styles */
     * {
@@ -11,52 +13,50 @@
       padding: 0;
       box-sizing: border-box;
     }
-
+    
     body {
       background-color: #000; /* Fond noir */
       color: #D4AF37; /* Texte doré */
-      font-family: "Times New Roman", serif;
+      font-family: 'Amatic SC', cursive, "Times New Roman", serif;
       line-height: 1.6;
     }
-
+    
     .container {
       width: 80%;
       max-width: 800px;
       margin: 40px auto;
       padding: 20px;
     }
-
-    h1,
-    h2 {
+    
+    h1, h2 {
       text-align: center;
       margin-bottom: 20px;
     }
-
+    
     h1 {
       font-size: 2.5rem;
       letter-spacing: 2px;
       text-transform: uppercase;
     }
-
+    
     h2 {
       font-size: 1.5rem;
       font-style: italic;
     }
-
-    p,
-    ul {
+    
+    p, ul {
       font-size: 1.2rem;
       margin-bottom: 20px;
     }
-
+    
     ul {
       margin-left: 40px;
     }
-
+    
     li {
       margin-bottom: 10px;
     }
-
+    
     .tarifs-title {
       font-weight: bold;
       font-size: 1.4rem;
@@ -64,14 +64,14 @@
       margin-bottom: 10px;
       text-decoration: underline;
     }
-
+    
     .signature {
       margin-top: 40px;
       text-align: center;
       font-style: italic;
       font-size: 1.2rem;
     }
-
+    
     /* Bouton Contact */
     #contact-btn {
       display: block;
@@ -87,21 +87,46 @@
     #contact-btn:hover {
       background-color: #bfa132;
     }
-
-    /* Conteneur pour l'image en arrière-plan */
+    
+    /* Image container ajusté */
     .image-container {
+      width: 80%;
+      max-width: 800px;
+      margin: 20px auto;
+      height: 400px;  /* Hauteur augmentée pour plus de visibilité */
+      position: relative;
       background: url('images/affut1.jpg') no-repeat center center;
       background-size: cover;
-      height: 300px; /* Ajustez la hauteur selon l'image */
-      opacity: 0.5;  /* Opacité à 50% */
-      margin-bottom: 20px;
     }
-
-    /* Modal */
+    
+    /* Superposition semi-transparente pour réduire l'opacité de l'image */
+    .image-container::before {
+      content: "";
+      position: absolute;
+      top: 0; 
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.3);  /* Opacité plus faible pour laisser transparaître l'image */
+      z-index: 1;
+    }
+    
+    /* Texte superposé sur l'image */
+    .overlay-text {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      font-size: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 0 10px;
+    }
+    
+    /* Modal pour le contact */
     .modal {
       display: none; /* Caché par défaut */
       position: fixed;
-      z-index: 1;
+      z-index: 10;
       left: 0;
       top: 0;
       width: 100%;
@@ -110,8 +135,7 @@
       background-color: rgba(0, 0, 0, 0.8);
       padding-top: 100px;
     }
-
-    /* Contenu de la modal */
+    
     .modal-content {
       background-color: #333;
       margin: auto;
@@ -121,8 +145,7 @@
       max-width: 500px;
       color: #D4AF37;
     }
-
-    /* Bouton de fermeture */
+    
     .close {
       color: #D4AF37;
       float: right;
@@ -130,12 +153,11 @@
       font-weight: bold;
       cursor: pointer;
     }
-
+    
     .close:hover {
       color: #fff;
     }
-
-    /* Style du formulaire */
+    
     form label {
       display: block;
       margin-top: 10px;
@@ -163,10 +185,11 @@
     form button:hover {
       background-color: #bfa132;
     }
+    
   </style>
 </head>
 <body>
-  <!-- Première section avec la phrase introductive -->
+  <!-- Section introductive -->
   <div class="container">
     <h1>Affûtage de Couteaux</h1>
     <h2>À la main, sur pierre</h2>
@@ -174,18 +197,20 @@
       Service artisanal fait à la pierre, du grain 200 à 12000 pour un affûtage fin, précis, respectueux de vos couteaux.
     </p>
   </div>
-
-  <!-- Bloc contenant l'image avec opacité 50% -->
-  <div class="image-container"></div>
-
-  <!-- Section avec le reste du contenu -->
+  
+  <!-- Zone d'image avec texte superposé -->
+  <div class="image-container">
+    <div class="overlay-text">Affûtage artisanal</div>
+  </div>
+  
+  <!-- Section du contenu principal -->
   <div class="container">
     <ul>
       <li>Couteaux de cuisine (chef, office, santoku, etc.)</li>
       <li>Couteaux de table et d’office</li>
       <li>Couteaux de poche/pliant</li>
     </ul>
-
+    
     <div class="tarifs-title">Tarifs indicatifs</div>
     <ul>
       <li>Couteaux de poche/pliant: 4€</li>
@@ -194,21 +219,21 @@
       <li>Lot de 5 couteaux : -10%</li>
     </ul>
     <p>* Affûtage sur mesure possible suivant l’état de la lame</p>
-
+    
     <p>
       <strong>Délai :</strong> 24 à 72h selon la charge de travail<br>
       <strong>Lieu :</strong> Liège et environ — dépôt/retrait sur RDV pour plus de facilité
     </p>
-
-    <!-- Bouton Contact -->
+    
+    <!-- Bouton de contact qui ouvre la modale -->
     <button id="contact-btn">Contact</button>
-
+    
     <p class="signature">
       Je travaille avec passion, à la main, pour redonner vie à vos lames, en toute sécurité.
     </p>
   </div>
-
-  <!-- Fenêtre modale pour les coordonnées et le formulaire de contact -->
+  
+  <!-- Fenêtre modale pour les coordonnées et le formulaire -->
   <div id="contactModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -216,7 +241,7 @@
       <p><strong>KEVIN LERUTH</strong><br>
       0491 59 98 51</p>
       <h3>Formulaire de Contact</h3>
-      <form id="contactForm" method="post" action="mailto:kev.leruth@gmail.com">
+      <form id="contactForm" method="post" action="mailto:exemple@mail.com">
         <label for="name">Nom :</label>
         <input type="text" id="name" name="name" required>
         
@@ -230,21 +255,21 @@
       </form>
     </div>
   </div>
-
+  
   <script>
-    // JavaScript pour afficher/masquer la modale
+    // Gestion de l'ouverture/fermeture de la modale
     var modal = document.getElementById("contactModal");
     var btn = document.getElementById("contact-btn");
     var span = document.getElementsByClassName("close")[0];
-
+    
     btn.onclick = function() {
       modal.style.display = "block";
     }
-
+    
     span.onclick = function() {
       modal.style.display = "none";
     }
-
+    
     window.onclick = function(event) {
       if (event.target == modal) {
         modal.style.display = "none";
