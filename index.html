@@ -16,7 +16,8 @@
     
     body {
       background-color: #000;
-      color: #D4AF37;
+      /* Texte courant en off‑white */
+      color: #f0f0f0;
       font-family: 'Lora', serif;
       line-height: 1.6;
     }
@@ -29,24 +30,29 @@
       margin: 20px auto;
     }
     
-    /* Ajustements spécifiques aux sections */
+    /* Section introduction avec un espacement réduit */
     .intro {
-      margin-bottom: 10px;  /* Moins d'espace sous l'introduction */
+      margin-bottom: 10px;
     }
     
+    /* Zone d'image */
     .image-container {
       width: 80%;
       max-width: 800px;
       height: 400px;
-      margin: 20px auto; /* Marges uniformes autour de l'image */
+      margin: 20px auto; /* Espaces uniformes autour de l'image */
       background: url('images/affut1.jpg') no-repeat center center;
       background-size: cover;
     }
     
+    /* Contenu principal rapproché du bas de l'image */
     .main-content {
-      margin-top: 30px;  /* Espace augmenté entre l'image et le contenu principal */
+      margin-top: 30px;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
     }
     
+    /* Titres – grands affichages en doré */
     h1, h2 {
       text-align: center;
       margin-bottom: 20px;
@@ -56,7 +62,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 3rem;
       text-transform: uppercase;
-      /* Dégradé de couleurs pour créer un effet artisanal */
+      /* Dégradé de couleurs dorées */
       background: linear-gradient(45deg, #D4AF37, #FFD700, #E6BE8A);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -65,10 +71,11 @@
     h2 {
       font-size: 1.8rem;
       font-style: italic;
-      color: #D4AF37;
+      color: #D4AF37; /* Titre en doré */
     }
     
-    p, ul {
+    /* Paragraphes et listes en off‑white */
+    p, ul, li {
       font-size: 1.2rem;
       margin-bottom: 20px;
     }
@@ -81,14 +88,18 @@
       margin-bottom: 10px;
     }
     
+    /* Titre tarif en gras doré */
     .tarifs-title {
       font-weight: bold;
       font-size: 1.4rem;
       margin-top: 30px;
       margin-bottom: 10px;
       text-decoration: underline;
+      color: #D4AF37;
     }
     
+    /* Signature : si le style "en gras" est souhaité, on peut le laisser en doré ;
+       sinon, elle sera en off‑white par défaut */
     .signature {
       margin-top: 40px;
       text-align: center;
@@ -96,7 +107,7 @@
       font-size: 1.2rem;
     }
     
-    /* Bouton Contact */
+    /* Bouton Contact – affichage en gras avec fond doré */
     #contact-btn {
       display: block;
       margin: 30px auto;
@@ -133,7 +144,9 @@
       border: 1px solid #888;
       width: 80%;
       max-width: 500px;
-      color: #D4AF37;
+      /* Par défaut, le contenu de la modale sera en off‑white.
+         Les titres (h2, h3) prendront la couleur dorée définie plus haut */
+      color: #f0f0f0;
     }
     
     .close {
