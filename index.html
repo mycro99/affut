@@ -21,11 +21,30 @@
       line-height: 1.6;
     }
     
+    /* Conteneur de base */
     .container {
       width: 80%;
       max-width: 800px;
-      margin: 40px auto;
       padding: 20px;
+      margin: 20px auto;
+    }
+    
+    /* Ajustements spécifiques aux sections */
+    .intro {
+      margin-bottom: 10px;  /* Moins d'espace sous l'introduction */
+    }
+    
+    .image-container {
+      width: 80%;
+      max-width: 800px;
+      height: 400px;
+      margin: 20px auto; /* Marges uniformes autour de l'image */
+      background: url('images/affut1.jpg') no-repeat center center;
+      background-size: cover;
+    }
+    
+    .main-content {
+      margin-top: 30px;  /* Espace augmenté entre l'image et le contenu principal */
     }
     
     h1, h2 {
@@ -37,7 +56,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 3rem;
       text-transform: uppercase;
-      /* Dégradé de couleurs pour un effet mixte */
+      /* Dégradé de couleurs pour créer un effet artisanal */
       background: linear-gradient(45deg, #D4AF37, #FFD700, #E6BE8A);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -91,24 +110,6 @@
     
     #contact-btn:hover {
       background-color: #bfa132;
-    }
-    
-    /* Zone d'image */
-    .image-container {
-      width: 80%;
-      max-width: 800px;
-      margin: 20px auto;
-      height: 400px;
-      position: relative;
-      background: url('images/affut1.jpg') no-repeat center center;
-      background-size: cover;
-    }
-    
-    /* Contenu principal repositionné pour chevaucher le bas de l'image */
-    .main-content {
-      margin-top: -50px; /* Ajuste cette valeur pour rapprocher le contenu du bas de l'image */
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 20px;
     }
     
     /* Modal pour le contact */
@@ -177,8 +178,8 @@
   </style>
 </head>
 <body>
-  <!-- Section introductive -->
-  <div class="container">
+  <!-- Introduction -->
+  <div class="container intro">
     <h1>Affûtage de Couteaux</h1>
     <h2>À la main, sur pierre</h2>
     <p>
@@ -189,7 +190,7 @@
   <!-- Zone d'image -->
   <div class="image-container"></div>
   
-  <!-- Contenu principal repositionné pour chevaucher le bas de l'image -->
+  <!-- Contenu principal -->
   <div class="container main-content">
     <ul>
       <li>Couteaux de cuisine (chef, office, santoku, etc.)</li>
@@ -219,7 +220,7 @@
     </p>
   </div>
   
-  <!-- Fenêtre modale pour les coordonnées et le formulaire -->
+  <!-- Modal de contact -->
   <div id="contactModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -243,7 +244,7 @@
   </div>
   
   <script>
-    // Gestion de l'ouverture et de la fermeture de la modale
+    // Gestion de la modale
     var modal = document.getElementById("contactModal");
     var btn = document.getElementById("contact-btn");
     var span = document.getElementsByClassName("close")[0];
