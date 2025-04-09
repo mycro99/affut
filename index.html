@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Affûtage de Couteaux</title>
   <style>
-    /* Réinitialisation des styles de base */
+    /* Réinitialisation des styles */
     * {
       margin: 0;
       padding: 0;
@@ -17,16 +17,17 @@
       color: #D4AF37; /* Texte doré */
       font-family: "Times New Roman", serif;
       line-height: 1.6;
-      padding: 20px; /* Espacement autour du contenu */
     }
 
     .container {
+      width: 80%;
       max-width: 800px;
-      margin: 40px auto; /* Centre le contenu */
+      margin: 40px auto;
       padding: 20px;
     }
 
-    h1, h2 {
+    h1,
+    h2 {
       text-align: center;
       margin-bottom: 20px;
     }
@@ -42,7 +43,8 @@
       font-style: italic;
     }
 
-    p, ul {
+    p,
+    ul {
       font-size: 1.2rem;
       margin-bottom: 20px;
     }
@@ -63,57 +65,191 @@
       text-decoration: underline;
     }
 
-    .contact {
-      margin-top: 30px;
-      text-align: center;
-      font-weight: bold;
-      font-size: 1.4rem;
-    }
-
     .signature {
       margin-top: 40px;
       text-align: center;
       font-style: italic;
       font-size: 1.2rem;
     }
+
+    /* Bouton Contact */
+    #contact-btn {
+      display: block;
+      margin: 30px auto;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      background-color: #D4AF37;
+      color: #000;
+      border: none;
+      cursor: pointer;
+    }
+    
+    #contact-btn:hover {
+      background-color: #bfa132;
+    }
+
+    /* Conteneur pour l'image en arrière-plan */
+    .image-container {
+      background: url('images/affut1.jpg') no-repeat center center;
+      background-size: cover;
+      height: 300px; /* Ajustez la hauteur selon l'image */
+      opacity: 0.5;  /* Opacité à 50% */
+      margin-bottom: 20px;
+    }
+
+    /* Modal */
+    .modal {
+      display: none; /* Caché par défaut */
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding-top: 100px;
+    }
+
+    /* Contenu de la modal */
+    .modal-content {
+      background-color: #333;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 500px;
+      color: #D4AF37;
+    }
+
+    /* Bouton de fermeture */
+    .close {
+      color: #D4AF37;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #fff;
+    }
+
+    /* Style du formulaire */
+    form label {
+      display: block;
+      margin-top: 10px;
+    }
+    
+    form input, form textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 4px;
+    }
+    
+    form button {
+      margin-top: 15px;
+      padding: 10px;
+      width: 100%;
+      font-size: 1rem;
+      background-color: #D4AF37;
+      color: #000;
+      border: none;
+      cursor: pointer;
+    }
+    
+    form button:hover {
+      background-color: #bfa132;
+    }
   </style>
 </head>
 <body>
+  <!-- Première section avec la phrase introductive -->
   <div class="container">
     <h1>Affûtage de Couteaux</h1>
     <h2>À la main, sur pierre</h2>
-
     <p>
       Service artisanal fait à la pierre, du grain 200 à 12000 pour un affûtage fin, précis, respectueux de vos couteaux.
     </p>
+  </div>
 
+  <!-- Bloc contenant l'image avec opacité 50% -->
+  <div class="image-container"></div>
+
+  <!-- Section avec le reste du contenu -->
+  <div class="container">
     <ul>
       <li>Couteaux de cuisine (chef, office, santoku, etc.)</li>
       <li>Couteaux de table et d’office</li>
-      <li>Couteaux de chef</li>
+      <li>Couteaux de poche/pliant</li>
     </ul>
 
     <div class="tarifs-title">Tarifs indicatifs</div>
     <ul>
-      <li>Couteau de cuisine classique : 8 €</li>
-      <li>2 couteaux : 15 €</li>
-      <li>5 couteaux : -10%</li>
+      <li>Couteaux de poche/pliant: 4€</li>
+      <li>Couteaux de cuisine &lt;15cm : 6€</li>
+      <li>Couteaux de cuisine &gt;15cm : 8€</li>
+      <li>Lot de 5 couteaux : -10%</li>
     </ul>
     <p>* Affûtage sur mesure possible suivant l’état de la lame</p>
 
     <p>
       <strong>Délai :</strong> 24 à 72h selon la charge de travail<br>
-      <strong>Lieu :</strong> Liège — Dépôt / retrait au domicile sur prise de rendez-vous local
+      <strong>Lieu :</strong> Liège et environ — dépôt/retrait sur RDV pour plus de facilité
     </p>
 
-    <div class="contact">
-      KEVIN LERUTH<br>
-      0491 59 98 51
-    </div>
+    <!-- Bouton Contact -->
+    <button id="contact-btn">Contact</button>
 
     <p class="signature">
       Je travaille avec passion, à la main, pour redonner vie à vos lames, en toute sécurité.
     </p>
   </div>
+
+  <!-- Fenêtre modale pour les coordonnées et le formulaire de contact -->
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Coordonnées</h2>
+      <p><strong>KEVIN LERUTH</strong><br>
+      0491 59 98 51</p>
+      <h3>Formulaire de Contact</h3>
+      <form id="contactForm" method="post" action="mailto:kev.leruth@gmail.com">
+        <label for="name">Nom :</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="message">Message :</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        
+        <button type="submit">Envoyer</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript pour afficher/masquer la modale
+    var modal = document.getElementById("contactModal");
+    var btn = document.getElementById("contact-btn");
+    var span = document.getElementsByClassName("close")[0];
+
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
 </body>
 </html>
