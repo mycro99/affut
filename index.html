@@ -36,28 +36,35 @@
       max-width: 850px;
       margin: 0 auto;
       display: flex;
-      justify-content: center;
       align-items: center;
-      gap: 20px;
+      position: relative;
     }
-    /* L'image nom.jpg centrée avec une largeur d'environ 22 cm (doublée par rapport à 11cm) */
-    .header-inner img {
-      width: 20cm; /* Si vous souhaitez doubler la taille, vous pouvez utiliser 22cm ici */
+    /* Bloc logo à gauche */
+    .header-left {
+      position: absolute;
+      left: 20px;
+    }
+    .header-left img {
+      width: 150px; /* Ajustez la taille du logo selon vos besoins */
+      height: auto;
+      display: block;
+    }
+    /* Bloc centré pour le nom */
+    .header-center {
+      margin: 0 auto;
+    }
+    .header-center img {
+      width: 22cm;  /* Largeur fixée entre 10 et 12 cm doublée pour être bien visible */
       height: auto;
       display: block;
     }
     
-    /* Exemple avec nom.jpg à 22 cm et logo.jpg à une taille uniforme */
-    /* Pour cet exemple, on suppose que seule l'image nom.jpg est affichée dans l'en-tête fixe.
-       Sinon, si vous souhaitez afficher logo.jpg et nom.jpg côte à côte, adaptez la largeur individuellement.
-       Ici, nous plaçons uniquement l'image nom.jpg en entête fixe. */
-    
-    /* Conteneur principal (déplacé vers le bas pour laisser l'espace de l'en-tête) */
+    /* Conteneur principal, décalé vers le bas pour laisser la place à l'entête */
     .container {
       width: 85%;
       max-width: 850px;
       padding: 20px;
-      margin: 220px auto 30px auto; /* Marge supérieure augmentée */
+      margin: 250px auto 30px auto; /* Augmentation de la marge supérieure */
       background-color: #18140e;
       border-radius: 8px;
     }
@@ -165,7 +172,7 @@
       color: #fff;
     }
     
-    /* Conteneur interne flex pour séparer les infos et la carte */
+    /* Conteneur interne en flex pour séparer les infos et la carte */
     .modal-container {
       display: flex;
       flex-wrap: wrap;
@@ -222,10 +229,17 @@
   </style>
 </head>
 <body>
-  <!-- En-tête fixe avec l'image nom.jpg centrée -->
+  <!-- En-tête fixe -->
   <header class="fixed-header">
     <div class="header-inner">
-      <img src="images/nom.jpg" alt="Nom">
+      <!-- Bloc logo à gauche -->
+      <div class="header-left">
+        <img src="images/logo.jpg" alt="Logo">
+      </div>
+      <!-- Bloc centré pour le nom -->
+      <div class="header-center">
+        <img src="images/nom.jpg" alt="Nom">
+      </div>
     </div>
   </header>
   
