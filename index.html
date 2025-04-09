@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Affûtage de Couteaux</title>
-  <!-- Importation de la police Cinzel pour les titres et Lora pour le corps -->
+  <!-- Importation des polices Cinzel pour les titres et Lora pour le corps -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:wght@400&display=swap" rel="stylesheet">
   <style>
+    /* Réinitialisation */
     * {
       margin: 0;
       padding: 0;
@@ -19,32 +20,6 @@
       font-family: 'Lora', serif;
       line-height: 1.6;
     }
-     /* En-tête fixe */
-    .fixed-header {
-      position: fixed;      /* Fixe la barre en haut de la page */
-      top: 0;
-      left: 0;
-      width: 100%;         /* Occupe toute la largeur */
-      display: flex;
-      justify-content: space-between; /* Aligne les deux images aux extrémités */
-      align-items: center;
-      background-color: #18140e; /* Même couleur de fond que la page pour l'uniformité */
-      padding: 10px 20px;
-      z-index: 9999;       /* Pour rester au-dessus du contenu */
-    }
-
-    /* Ajustements de taille pour les images de l'en-tête */
-    .fixed-header img {
-      max-height: 80px;  /* Hauteur maximale (à ajuster selon vos besoins) */
-      height: auto;
-      display: block;
-    }
-
-    .header-left, .header-right {
-      display: flex;
-      align-items: center;
-      /* Vous pouvez ajouter des marges ou du padding si besoin */
-    }
     
     .container {
       width: 85%;
@@ -55,17 +30,18 @@
       border-radius: 8px;
     }
     
+    /* Logo en-tête étiré sur toute la largeur du container */
     .logo-container {
       text-align: center;
       margin-bottom: 10px;
     }
-    /* L'image est étirée sur toute la largeur du container */
     .logo-container img {
       width: 100%;
       height: auto;
       display: block;
     }
     
+    /* Bannière */
     .image-container {
       width: 100%;
       height: 400px;
@@ -131,7 +107,7 @@
       background-color: #bfa132;
     }
     
-    /* Modal de contact avec fond uniforme */
+    /* Modal de contact */
     .modal {
       display: none;
       position: fixed;
@@ -168,7 +144,7 @@
       color: #fff;
     }
     
-    /* Conteneur interne en flex pour séparer les infos et la carte */
+    /* Conteneur interne en flex pour séparer infos et carte */
     .modal-container {
       display: flex;
       flex-wrap: wrap;
@@ -227,9 +203,9 @@
 </head>
 <body>
   <div class="container">
-    <!-- Affichage du logo remplacant le h1, étiré sur toute la largeur du container -->
+    <!-- Affichage du logo en tant qu'en-tête -->
     <div class="logo-container">
-      
+      <img src="images/l-affut-lame.jpg" alt="L'Affût'Lame">
     </div>
     
     <h2>À la main, sur pierre</h2>
@@ -303,7 +279,7 @@
   </div>
   
   <script>
-    // Gestion de l'ouverture/fermeture de la modale
+    // Gestion de l'ouverture et fermeture de la modale
     var modal = document.getElementById("contactModal");
     var btn = document.getElementById("contact-btn");
     var span = document.getElementsByClassName("close")[0];
