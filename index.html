@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Affûtage de Couteaux</title>
+  <style>
+    /* Réinitialisation basique pour éviter les styles par défaut */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Corps de la page */
+    body {
+      font-family: "Times New Roman", serif;
+      /* Si tu as une image de fond : */
+      background: url("images/sharpening.jpg") no-repeat center center;
+      background-size: cover;
+      color: #fff;
+    }
+
+    /* Surcouche pour assombrir légèrement l'image de fond (optionnel) */
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+      min-height: 100vh; /* occupe toute la hauteur de la fenêtre */
+      padding: 2rem;
+    }
+
+    /* Conteneur principal pour centrer et limiter la largeur du contenu */
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Titres */
+    h1 {
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      text-align: center;
+      font-style: italic;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Paragraphes et listes */
+    p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      margin-bottom: 1rem;
+      margin-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Mise en forme spéciale pour “Tarifs indicatifs”, etc. */
+    .tarifs-title {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+      text-decoration: underline;
+    }
+
+    /* Texte de fin (signature ou autres infos) */
+    .signature {
+      margin-top: 3rem;
+      font-style: italic;
+      text-align: center;
+    }
+
+    /* Téléphone et nom mis en avant */
+    .contact {
+      margin-top: 2rem;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="container">
+      <!-- Titre principal -->
+      <h1>AFFÛTAGE DE COUTEAUX</h1>
+      <h2>À LA MAIN, SUR PIERRE</h2>
+
+      <!-- Texte descriptif -->
+      <p>
+        Service artisanal fait à la pierre, du grain 200 à 12000 pour un affûtage fin, précis, respectueux de vos couteaux.
+      </p>
+
+      <!-- Liste des couteaux -->
+      <ul>
+        <li>Couteaux de cuisine (chef, office, santoku, etc.)</li>
+        <li>Couteaux de table et d’office</li>
+        <li>Couteaux de chef</li>
+      </ul>
+
+      <!-- Tarifs -->
+      <div class="tarifs-title">Tarifs indicatifs</div>
+      <ul>
+        <li>Couteau de cuisine classique : 8 €</li>
+        <li>2 couteaux : 15 €</li>
+        <li>5 couteaux : -10%</li>
+      </ul>
+      <p>
+        * Affûtage sur mesure possible suivant l’état de la lame
+      </p>
+
+      <p>
+        <strong>Délai :</strong> 24 à 72h selon la charge de travail <br>
+        <strong>Lieu :</strong> Liège — Dépôt / retrait au domicile sur prise de rendez-vous local
+      </p>
+
+      <!-- Coordonnées -->
+      <div class="contact">
+        KEVIN LERUTH<br>
+        0491 59 98 51
+      </div>
+
+      <!-- Phrase de conclusion -->
+      <p class="signature">
+        Je travaille avec passion, à la main, pour redonner vie à vos lames, en toute sécurité.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
