@@ -25,9 +25,19 @@
       max-width: 850px;
       padding: 20px;
       margin: 30px auto;
-      /* Fond identique à celui de la page pour une uniformité */
       background-color: #18140e;
       border-radius: 8px;
+    }
+    
+    .logo-container {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    /* L'image est étirée sur toute la largeur du container */
+    .logo-container img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
     
     .image-container {
@@ -36,16 +46,6 @@
       background: url('images/affut1.jpg') no-repeat center center;
       background-size: cover;
       margin-bottom: 30px;
-    }
-    
-    /* Nouveau conteneur pour le logo */
-    .logo-container {
-      text-align: center;
-      margin-bottom: 10px; /* Espace sous l'image */
-    }
-    .logo-container img {
-      max-width: 300px;
-      height: auto;
     }
     
     h2 {
@@ -85,11 +85,11 @@
       color: #e6be8a;
     }
     
-    /* Bouton Contact */
+    /* Bouton Contact retravaillé */
     #contact-btn {
       display: block;
       width: 200px;
-      margin: 30px auto 0 auto;
+      margin: 30px auto 0;
       padding: 12px;
       font-size: 1.3rem;
       font-family: 'Cinzel', serif;
@@ -105,7 +105,7 @@
       background-color: #bfa132;
     }
     
-    /* Modal de contact */
+    /* Modal de contact avec fond uniforme */
     .modal {
       display: none;
       position: fixed;
@@ -142,7 +142,7 @@
       color: #fff;
     }
     
-    /* Conteneur interne en flex pour séparer infos et carte */
+    /* Conteneur interne en flex pour séparer les infos et la carte */
     .modal-container {
       display: flex;
       flex-wrap: wrap;
@@ -201,12 +201,12 @@
 </head>
 <body>
   <div class="container">
-    <!-- Remplacement du H1 par l'image du logo -->
+    <!-- Affichage du logo remplacant le h1, étiré sur toute la largeur du container -->
     <div class="logo-container">
-      <img src="images/l'affut'lame.jpg" alt="L'Affût'Lame">
+      <img src="images/l-affut-lame.jpg" alt="L'Affût'Lame">
     </div>
     
-    <h2>À la main, sur la pierre</h2>
+    <h2>À la main, sur pierre</h2>
     
     <div class="image-container"></div>
     
