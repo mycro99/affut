@@ -38,13 +38,14 @@
       margin-bottom: 30px;
     }
     
-    h1 {
-      font-family: 'Cinzel', serif;
-      font-size: 3rem;
+    /* Nouveau conteneur pour le logo */
+    .logo-container {
       text-align: center;
-      text-transform: uppercase;
-      color: #D4AF37;
-      margin-bottom: 10px;
+      margin-bottom: 10px; /* Espace sous l'image */
+    }
+    .logo-container img {
+      max-width: 300px;
+      height: auto;
     }
     
     h2 {
@@ -84,7 +85,7 @@
       color: #e6be8a;
     }
     
-    /* Bouton Contact retravaillé */
+    /* Bouton Contact */
     #contact-btn {
       display: block;
       width: 200px;
@@ -104,7 +105,7 @@
       background-color: #bfa132;
     }
     
-    /* Modal de contact avec fond uniforme */
+    /* Modal de contact */
     .modal {
       display: none;
       position: fixed;
@@ -114,7 +115,7 @@
       width: 100%;
       height: 100%;
       overflow: auto;
-      background-color: rgba(24, 20, 14, 0.95); /* Très proche du #18140e */
+      background-color: rgba(24, 20, 14, 0.95);
       padding-top: 50px;
     }
     
@@ -141,7 +142,7 @@
       color: #fff;
     }
     
-    /* Conteneur interne en flex pour séparer les infos et la carte */
+    /* Conteneur interne en flex pour séparer infos et carte */
     .modal-container {
       display: flex;
       flex-wrap: wrap;
@@ -200,7 +201,11 @@
 </head>
 <body>
   <div class="container">
-    <h1>Affûtage de Couteaux</h1>
+    <!-- Remplacement du H1 par l'image du logo -->
+    <div class="logo-container">
+      <img src="images/l'affut'lame.jpg" alt="L'Affût'Lame">
+    </div>
+    
     <h2>À la main, sur pierre</h2>
     
     <div class="image-container"></div>
@@ -243,7 +248,7 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <div class="modal-container">
-        <!-- Section coordonées et formulaire -->
+        <!-- Section coordonnées et formulaire -->
         <div class="modal-info">
           <h2>Coordonnées</h2>
           <p><strong>KEVIN LERUTH</strong><br>
