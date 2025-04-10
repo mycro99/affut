@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notre Philosophie - Affûtage de Couteaux</title>
+  <!-- Importation des polices Cinzel pour certains titres et Lora pour le corps -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:wght@400&display=swap" rel="stylesheet" />
+  <style>
+    /* Réinitialisation */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #0F0F0B;
+      color: #f8f5f0;
+      font-family: 'Lora', serif;
+      line-height: 1.6;
+    }
+    /* En-tête fixe occupant toute la largeur */
+    .fixed-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #0F0F0B;
+      padding: 10px 20px;
+      z-index: 1000;
+      border-bottom: 1px solid #333;
+    }
+    .header-inner {
+      max-width: 850px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      position: relative;
+    }
+    /* Bloc logo à gauche, décalé de 5 cm vers la gauche */
+    .header-left {
+      transform: translateX(-5cm);
+    }
+    .header-left img {
+      width: 150px;
+      height: auto;
+      display: block;
+    }
+    /* Bloc centré pour le nom, décalé de 5 cm vers la gauche */
+    .header-center {
+      transform: translateX(-5cm);
+      text-align: center;
+      flex-grow: 1;
+    }
+    .header-center img {
+      width: 22cm;
+      height: auto;
+      display: inline-block;
+    }
+    /* Bloc à droite pour les boutons, décalé de 5 cm vers la gauche */
+    .header-right {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      transform: translateX(-5cm);
+    }
+    /* Les boutons utilisent la police Lora, comme le reste du site */
+    .header-right a,
+    .header-right button {
+      background: none;
+      border: none;
+      color: #f8f5f0;
+      font-family: 'Lora', serif;
+      font-size: 1.2rem;
+      cursor: pointer;
+      text-decoration: none;
+      padding: 8px 12px;
+    }
+    .header-right a:hover,
+    .header-right button:hover {
+      color: #bfa132;
+    }
+    
+    /* Conteneur principal décalé vers le bas (pour laisser l'espace de l'en-tête) */
+    .container {
+      width: 85%;
+      max-width: 850px;
+      padding: 20px;
+      margin: 300px auto 30px auto;
+      background-color: #0F0F0B;
+      border-radius: 8px;
+    }
+    /* Style de la bannière */
+    .image-container {
+      width: 100%;
+      height: 400px;
+      background: url('images/affut1.jpg') no-repeat center center;
+      background-size: cover;
+      margin-bottom: 30px;
+    }
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.6rem;
+      font-style: italic;
+      text-align: center;
+      color: #e6be8a;
+      margin-bottom: 20px;
+    }
+    p, ul, li {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+    ul {
+      padding-left: 40px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    .tarifs-title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #e6be8a;
+      margin: 30px 0 10px;
+      text-decoration: underline;
+    }
+    .signature {
+      margin-top: 40px;
+      text-align: center;
+      font-style: italic;
+      color: #e6be8a;
+    }
+    
+    /* Modal de contact */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      padding-top: 150px; /* Décalage pour que le modal apparaisse plus bas */
+      background-color: rgba(15,15,11,0.95);
+    }
+    .modal-content {
+      background-color: #0F0F0B;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 90%;
+      max-width: 900px;
+      color: #f8f5f0;
+      border-radius: 8px;
+    }
+    .close {
+      color: #D4AF37;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover {
+      color: #fff;
+    }
+    /* Conteneur interne du modal */
+    .modal-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .modal-info, .modal-map {
+      flex: 1 1 300px;
+    }
+    .modal-info h2, .modal-info h3 {
+      font-family: 'Cinzel', serif;
+      margin-bottom: 10px;
+    }
+    .modal-info p {
+      margin-bottom: 15px;
+    }
+    form label {
+      display: block;
+      margin-top: 10px;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 4px;
+    }
+    form button {
+      margin-top: 15px;
+      padding: 10px;
+      width: 100%;
+      font-size: 1rem;
+      background-color: #D4AF37;
+      color: #0F0F0B;
+      border: none;
+      cursor: pointer;
+    }
+    form button:hover {
+      background-color: #bfa132;
+    }
+    .modal-map iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <!-- En-tête fixe -->
+  <header class="fixed-header">
+    <div class="header-inner">
+      <!-- Bloc logo à gauche -->
+      <div class="header-left">
+        <img src="images/logo.jpg" alt="Logo">
+      </div>
+      <!-- Bloc centré pour le nom -->
+      <div class="header-center">
+        <img src="images/nom.jpg" alt="Nom">
+      </div>
+      <!-- Bloc à droite pour les boutons -->
+      <div class="header-right">
+        <a href="index.html">Accueil</a>
+        <a href="philosophie.html">Notre philosophie</a>
+        <button id="contact-btn2">Contact</button>
+      </div>
+    </div>
+  </header>
+  
+  <div class="container">
+    <h2>Notre Philosophie</h2>
+    <p>
+      🔹 <strong>1. L’amour du geste</strong><br>
+      Chez L’AFFÛT’LAME, chaque couteau est traité avec respect.<br>
+      L’affûtage à la pierre est un art lent, précis, presque méditatif.<br>
+      C’est le retour à un geste ancestral, à contre-courant du jetable.
+    </p>
+    <p>
+      🔹 <strong>2. Respect de l’outil</strong><br>
+      Un bon couteau mérite mieux que de finir émoussé au fond d’un tiroir.<br>
+      C’est un prolongement de la main du cuisinier, un compagnon du quotidien.<br>
+      Notre philosophie ? Redonner vie aux lames, sans les dénaturer.
+    </p>
+    <p>
+      🔹 <strong>3. Contre la surconsommation</strong><br>
+      Dans un monde où l’on jette trop vite, nous choisissons de restaurer.<br>
+      L’affûtage, c’est l’entretien, la transmission, la durabilité.<br>
+      Vous prolongez la vie de vos outils, et vous valorisez ce que vous possédez déjà.
+    </p>
+    <p>
+      🔹 <strong>4. Accessibilité et transmission</strong><br>
+      Que vous soyez chef, passionné ou simplement soucieux de cuisiner avec de bons outils,<br>
+      vous avez droit à un affûtage de qualité, abordable, et local.<br>
+      Je partage également conseils, astuces et ma passion du tranchant.
+    </p>
+    <p>
+      🔹 <strong>5. Une touche personnelle</strong><br>
+      Je travaille chaque lame comme si c’était la mienne.<br>
+      Parce qu’un bon tranchant change tout : dans la cuisine comme dans le geste.
+    </p>
+  </div>
+  
+  <!-- Modal de contact -->
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="modal-container">
+        <!-- Coordonnées et formulaire -->
+        <div class="modal-info">
+          <h2>Coordonnées</h2>
+          <p>
+            <strong>KEVIN LERUTH</strong><br>
+            0491 59 98 51
+          </p>
+          <h3>Formulaire de Contact</h3>
+          <form id="contactForm" method="post" action="mailto:kev.leruth@gmail.com">
+            <label for="name">Nom :</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <button type="submit">Envoyer</button>
+          </form>
+        </div>
+        <!-- Carte Google Maps -->
+        <div class="modal-map">
+          <h2>Notre Emplacement</h2>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d6015.3985673359175!2d5.621380103055321!3d50.66122587127437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sbe!4v1744185504800" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Gestion du modal pour le bouton "Contact" dans l'en-tête (id contact-btn2)
+    var modal = document.getElementById("contactModal");
+    var btn2 = document.getElementById("contact-btn2");
+    var span = document.getElementsByClassName("close")[0];
+
+    btn2.onclick = function() {
+      modal.style.display = "block";
+    }
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+    
+    // Réinitialise le formulaire à chaque chargement de la page
+    window.onload = function() {
+      var contactForm = document.getElementById('contactForm');
+      if (contactForm) {
+        contactForm.reset();
+      }
+    };
+  </script>
+</body>
+</html>
