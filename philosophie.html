@@ -13,12 +13,14 @@
       padding: 0;
       box-sizing: border-box;
     }
+    
     body {
       background-color: #0F0F0B;
       color: #f8f5f0;
       font-family: 'Lora', serif;
       line-height: 1.6;
     }
+    
     /* En-tête fixe occupant toute la largeur */
     .fixed-header {
       position: fixed;
@@ -66,7 +68,7 @@
       align-items: center;
       transform: translateX(-5cm);
     }
-    /* Les boutons utilisent la police Lora, comme le reste du site */
+    /* Les boutons utilisent la police Lora (même que le reste) */
     .header-right a,
     .header-right button {
       background: none;
@@ -83,7 +85,7 @@
       color: #bfa132;
     }
     
-    /* Conteneur principal décalé vers le bas (pour laisser l'espace de l'en-tête) */
+    /* Conteneur principal, décalé pour laisser la place à l'en-tête */
     .container {
       width: 85%;
       max-width: 850px;
@@ -92,7 +94,8 @@
       background-color: #0F0F0B;
       border-radius: 8px;
     }
-    /* Style de la bannière */
+    
+    /* Bannière */
     .image-container {
       width: 100%;
       height: 400px;
@@ -100,6 +103,8 @@
       background-size: cover;
       margin-bottom: 30px;
     }
+    
+    /* Titre de la page et chapitres en doré (#D4AF37) */
     h2 {
       font-family: 'Cinzel', serif;
       font-size: 1.6rem;
@@ -108,6 +113,11 @@
       color: #D4AF37;
       margin-bottom: 20px;
     }
+    /* Cette règle applique la couleur dorée aux éléments en gras dans le conteneur */
+    .container p strong {
+      color: #D4AF37;
+    }
+    
     p, ul, li {
       font-size: 1.2rem;
       margin-bottom: 15px;
@@ -118,6 +128,7 @@
     li {
       margin-bottom: 10px;
     }
+    
     .tarifs-title {
       font-size: 1.4rem;
       font-weight: bold;
@@ -125,6 +136,7 @@
       margin: 30px 0 10px;
       text-decoration: underline;
     }
+    
     .signature {
       margin-top: 40px;
       text-align: center;
@@ -165,6 +177,7 @@
     .close:hover {
       color: #fff;
     }
+    
     /* Conteneur interne du modal */
     .modal-container {
       display: flex;
@@ -304,7 +317,7 @@
     var modal = document.getElementById("contactModal");
     var btn2 = document.getElementById("contact-btn2");
     var span = document.getElementsByClassName("close")[0];
-
+    
     btn2.onclick = function() {
       modal.style.display = "block";
     }
